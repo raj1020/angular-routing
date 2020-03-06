@@ -3,19 +3,27 @@
 
 
 
-<div 
->
+<div>
 
 
   <div>
 
    
 
-    <h1>Welcome to Angular Routing</h1>
+    <h1>Welcome to Angular Routing and Navigation</h1>
 
     
 
   </div>
+
+  <nav>
+    <div><a routerLink= "/departments" routerLinkActive = "active">Departments</a></div>
+    <div><a routerLink = "/employees" routerLinkActive= "active">Employees</a></div>
+    
+    
+
+
+  </nav>
 
   
   
@@ -26,3 +34,4 @@
 
 
 <router-outlet></router-outlet>
+<!-- Routed view goes here -->
