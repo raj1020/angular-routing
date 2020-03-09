@@ -5,10 +5,21 @@ import {DepartmentListComponent} from './department-list/department-list.compone
 import {EmployeeListComponent} from './employee-list/employee-list.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { DepartmentDetailComponent } from './department-detail/department-detail.component';
+import { DepartmentOverviewComponent } from './department-overview/department-overview.component';
+import { DepartmentContactComponent } from './department-contact/department-contact.component';
 
 const routes: Routes = [
   {path: 'department-list', component: DepartmentListComponent},
-  {path: 'department-list/:id', component: DepartmentDetailComponent},
+  {path: 'department-list/:id', 
+  component: DepartmentDetailComponent,
+  children: [
+    { path: 'overview', component: DepartmentOverviewComponent },
+    {path: 'contact', component: DepartmentContactComponent}
+
+  ]
+  
+},
+
   {path: 'employees', component: EmployeeListComponent},
   { path: '',   redirectTo: '/department-list', pathMatch: 'full' },
   {path: "**", component: PageNotFoundComponent}
@@ -19,5 +30,11 @@ const routes: Routes = [
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
-export const routingComponents = [DepartmentListComponent, EmployeeListComponent, DepartmentDetailComponent, PageNotFoundComponent];
+export const routingComponents = [DepartmentListComponent, 
+  EmployeeListComponent,
+  DepartmentDetailComponent, 
+  PageNotFoundComponent,
+  DepartmentOverviewComponent,
+  DepartmentContactComponent
+];
 
